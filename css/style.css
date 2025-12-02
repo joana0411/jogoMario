@@ -2,78 +2,177 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
+body {
+    background-color: #f0f0f0;
+}
+
+/* Telas de Controle (Login e Game Over) */
+.login-screen, .game-over-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 10;
+}
+
+.login-screen h1 {
+    color: #e44d26;
+    margin-bottom: 10px;
+}
+
+.login-screen input, .login-screen button, 
+.game-over-screen button {
+    padding: 10px 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    width: 100%;
+}
+
+.login-screen input {
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+#start-button {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+}
+
+#start-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#restart-button {
+    background-color: #007bff; /* Azul */
+    color: white;
+    margin-bottom: 10px;
+}
+
+#change-user-button {
+    background-color: #f44336; /* Vermelho */
+    color: white;
+}
+
+/* Histórico de Usuários */
+.user-history-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.user-history-container h3 {
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 1em;
+}
+
+#users-history-list {
+    list-style: none;
+    padding: 0;
+}
+
+#users-history-list li {
+    background-color: #f9f9f9;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#users-history-list li:hover {
+    background-color: #eee;
+    font-weight: bold;
+}
+
+/* Área do Jogo */
 .game-board {
     width: 100%;
+    max-width: 800px;
     height: 500px;
     border-bottom: 15px solid rgb(35, 160, 35);
-    margin: 0 auto;
+    margin: 50px auto 0;
     position: relative;
     overflow: hidden;
     background: linear-gradient(#87CEEB, #E0F6FF);
+}
+
+.score-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #333;
+    z-index: 5;
 }
 
 .pipe {
     position: absolute;
     bottom: 0;
     width: 80px;
-    animation: pipe-animation 1.5s infinite linear;
+    /* ANIMAÇÃO REMOVIDA AQUI, SERÁ APLICADA NO JS */
 }
 
 .mario {
     width: 150px;
     position: absolute;
     bottom: 0;
+    transition: all 0.1s ease-out; 
 }
 
 .jump {
-    animation: jump 500ms ease-out
+    animation: jump 500ms ease-out;
 }
 
 .clouds {
     position: absolute;
     width: 550px;
-    animation: clouds-animation 20s infinite linear;
+    /* ANIMAÇÃO REMOVIDA AQUI, SERÁ APLICADA NO JS */
 }
 
+.hidden {
+    display: none !important;
+}
+
+/* Keyframes */
 @keyframes pipe-animation {
     from {
         right: -80px;
     }
-
     to {
         right: 100%;
     }
 }
 
 @keyframes jump {
-    0% {
-        bottom: 0;
-    }
-
-    40% {
-        bottom: 180px;
-    }
-
-    50% {
-        bottom: 180px;
-    }
-
-    70% {
-        bottom: 180px;
-    }
-
-    100% {
-        bottom: 0;
-    }
+    0% { bottom: 0; }
+    40% { bottom: 180px; }
+    50% { bottom: 180px; }
+    70% { bottom: 180px; }
+    100% { bottom: 0; }
 }
 
 @keyframes clouds-animation {
     from {
         right: -550px;
     }
-
     to {
         right: 100%;
     }

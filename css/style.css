@@ -9,7 +9,6 @@ body {
     background-color: #f0f0f0;
 }
 
-/* Telas de Controle (Login e Game Over) */
 .login-screen, .game-over-screen {
     position: absolute;
     top: 50%;
@@ -47,7 +46,7 @@ body {
 }
 
 #start-button {
-    background-color: #4CAF50; /* Verde */
+    background-color: #4CAF50; 
     color: white;
 }
 
@@ -57,17 +56,16 @@ body {
 }
 
 #restart-button {
-    background-color: #007bff; /* Azul */
+    background-color: #007bff; 
     color: white;
     margin-bottom: 10px;
 }
 
 #change-user-button {
-    background-color: #f44336; /* Vermelho */
+    background-color: #f44336; 
     color: white;
 }
 
-/* Histórico de Usuários */
 .user-history-container {
     margin-top: 30px;
     padding-top: 20px;
@@ -99,7 +97,6 @@ body {
     font-weight: bold;
 }
 
-/* Área do Jogo */
 .game-board {
     width: 100%;
     max-width: 800px;
@@ -127,8 +124,7 @@ body {
     position: absolute;
     bottom: 0;
     width: 80px;
-    /* ANIMAÇÃO REMOVIDA AQUI, SERÁ APLICADA NO JS */
-}
+   }
 
 .mario {
     width: 150px;
@@ -144,14 +140,12 @@ body {
 .clouds {
     position: absolute;
     width: 550px;
-    /* ANIMAÇÃO REMOVIDA AQUI, SERÁ APLICADA NO JS */
-}
+   }
 
 .hidden {
     display: none !important;
 }
 
-/* Keyframes */
 @keyframes pipe-animation {
     from {
         right: -80px;
